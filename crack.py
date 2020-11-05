@@ -5,11 +5,20 @@ from termcolor import colored
 import replit
 import math
 
+'''
+The amazing brute forcer! Have you ever seen something so brute?
+I am not responsible for any reprocussions you might encouter from using this software!
+You might need to install a few packages
+To run this, just clone this file and run:
+python3 crack.py
+'''
+
 # Brute force function
 def tryPassword(passwordSet, stringTypeSet):
     start = time.time()
     chars = stringTypeSet
     attempts = 0
+
     for i in range(1, 9):
         for letter in itertools.product(chars, repeat=i):
             attempts += 1
@@ -17,6 +26,7 @@ def tryPassword(passwordSet, stringTypeSet):
             letter = ''.join(letter)
             if attempts % 5000000 == 0:
                 if attempts > 999999999:
+
                     replit.clear()
                     print(colored("Attempting to crack password", "magenta"))
                     print()
