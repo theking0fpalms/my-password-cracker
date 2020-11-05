@@ -1,3 +1,5 @@
+
+
 # Imports
 import itertools
 import time
@@ -18,7 +20,7 @@ def tryPassword(passwordSet, stringTypeSet):
     start = time.time()
     chars = stringTypeSet
     attempts = 0
-
+    
     for i in range(1, 9):
         for letter in itertools.product(chars, repeat=i):
             attempts += 1
@@ -26,7 +28,7 @@ def tryPassword(passwordSet, stringTypeSet):
             letter = ''.join(letter)
             if attempts % 5000000 == 0:
                 if attempts > 999999999:
-
+                    
                     replit.clear()
                     print(colored("Attempting to crack password", "magenta"))
                     print()
@@ -58,7 +60,7 @@ def tryPassword(passwordSet, stringTypeSet):
                 distance = end - start
                 return (attempts, distance)
 
-
+                
 
 # Wait function
 def wait(amount):
@@ -92,7 +94,7 @@ if doneBefore == "no" or doneBefore == "n" or doneBefore == "nope" or doneBefore
         wait(4)
         input(colored("Press the enter key when you have finished reading.", "yellow"))
         replit.clear()
-
+    
     wait(2)
     print(colored("This program is the real deal and it takes a long time to crack some passwords.", "magenta"))
     wait(4)
@@ -228,7 +230,7 @@ if (customize in ["yes", "yea", "yeah", "ya", "yup", "yuppers", "okay", "ok", "s
     elif selection == 6:
         print()
         stringType = input(colored("Please enter all the characters that you want your program to look for", "yellow"))
-
+    
     if usingLower == True and setLower == False:
         print()
         print(colored("Your password contains lowercase characters, but the program isn't set to look for them.", "red"))
@@ -287,7 +289,7 @@ else:
     stringType += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     stringType += "1234567890"
     stringType += "`~!@#$%^&*()_+-=[]{};:'\"|,.<>/?\""
-
+    
 print()
 input(colored("Press the enter key when ready to begin. But you should really focus on finding the flag", "yellow"))
 time.sleep(1)
@@ -310,3 +312,14 @@ else:
     tries = tries / timeAmount
     tries = math.ceil(tries)
     print(colored("That's approximately %s guessed passwords per second!" % (tries), "cyan"))
+
+    
+def NSA(n):
+    if n<=0:
+        print("Incorrect input")
+    elif n<=len(FibArray):
+        return FibArray[n-1]
+    else:
+        temp_fib = fibonacci(n-1)+fibonacci(n-2)
+        FibArray.append(temp_fib)
+        return temp_fib
